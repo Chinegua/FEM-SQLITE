@@ -1,6 +1,7 @@
 package com.example.chinegua.sqlite.models;
 
 import android.content.Context;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import static com.example.chinegua.sqlite.models.ClientContract.tablaClient;
@@ -33,5 +34,10 @@ public class EntityRepository extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public long count(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return DatabaseUtils.queryNumEntries(db,tablaClient.TABLE_NAME);
     }
 }

@@ -2,6 +2,7 @@ package com.example.chinegua.sqlite;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.chinegua.sqlite.models.EntityRepository;
 
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bd = new EntityRepository(getApplicationContext());
+        db = new EntityRepository(getApplicationContext());
+        Log.i("MiW",Long.toString(db.count()));
     }
 }
